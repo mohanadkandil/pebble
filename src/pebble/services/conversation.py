@@ -63,7 +63,3 @@ def get_conversation_log() -> ConversationLog:
     if not _conversation_log:
         _conversation_log = ConversationLog()
     return _conversation_log
-
-
-    
-
