@@ -10,11 +10,11 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 class Message: 
     role: str
     content: str
-    created_at: str = field(default_factory=lambda: datetime.now().isoformat)
+    created_at: str = field(default_factory=lambda: datetime.now().isoformat())
 
 class ConversationLog:
     def __init__(self, filename: str = "conversation.json"):
-        DATA_DIR.mkdir(parent=True, exist_ok=True)
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
         self.filepath = DATA_DIR / filename
         self.messages: List[Message] = []
         self._load()
