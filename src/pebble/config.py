@@ -8,11 +8,11 @@ load_dotenv()
 @dataclass
 class Settings:
     openrouter_api_key: str = os.getenv("OPENROUTER_API_KEY")
-    model: str
+    model: str = os.getenv("MODEL", "minimax/minimax-m2.5")
 
 @lru_cache
 def get_settings() -> Settings:
     return Settings(
         openrouter_api_key=os.getenv("OPENROUTER_API_KEY"),
-        model=os.getenv("MODEL"),
+        model=os.getenv("MODEL", "minimax/minimax-m2.5"),
     )
